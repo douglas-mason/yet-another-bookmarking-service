@@ -3,10 +3,13 @@
 (function(){
   angular.module('bookmarkApp').
     controller('addNewCtrl', function(BookmarkService){
-      this.bookmark = {};
-      this.addClick = function(){
-        if(this.bookmark){
-          BookmarkService.save(this.bookmark);
+      var ctrl = this;
+      ctrl.bookmark = {};
+      ctrl.addClick = function(){
+        if(ctrl.bookmark){
+          BookmarkService.save(ctrl.bookmark).then(function(resp){
+            ctrl.bookmark = {};
+          });
         }
       };
     });

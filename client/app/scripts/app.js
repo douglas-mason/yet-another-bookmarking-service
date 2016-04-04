@@ -16,6 +16,11 @@
           controller: 'MainCtrl',
           controllerAs: 'ctrl'
         })
+        .when('/bookmark/:id', {
+          templateUrl: 'scripts/item/item.html',
+          controller: 'ItemCtrl',
+          controllerAs: 'ctrl'
+        })
         .otherwise({
           redirectTo: '/'
         });

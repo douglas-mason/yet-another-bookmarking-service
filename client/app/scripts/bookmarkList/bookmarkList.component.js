@@ -3,11 +3,15 @@
 
   angular.module("bookmarkApp").component("bookmarkList", {
     templateUrl: "/scripts/bookmarkList/bookmarkList.html",
-    controller: function(BookmarkService){
+    controller: function(BookmarkService, $rootScope){
       var ctrl = this;
-      BookmarkService.getAllBookmarks().then(function(response){
-        ctrl.bookmarks = response.data;
-      });
+      var buildList = function(){
+        BookmarkService.getAllBookmarks().then(function(response){
+          ctrl.bookmarks = response.data;
+        });
+      };
+      buildList();
+      $rootScope.$on("bookmarkListModified", buildList);
     }
   });
 })();

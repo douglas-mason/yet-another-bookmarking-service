@@ -2,5 +2,6 @@
     <input type="text" id="name" placeholder="Name" ng-model="$ctrl.bookmark.name">
     <input type="text" id="url" placeholder="URL" ng-model="$ctrl.bookmark.url">
     <input type="text" id="category" placeholder="Category" ng-model="$ctrl.bookmark.category">
-    <button class="waves-effect waves-light btn" ng-click="$ctrl.addClick()">Save</button>
+    <textarea id="notes" cols="30" rows="50" placeholder="Notes" ng-model="$parent.notes"></textarea>
+    <button class="waves-effect waves-light btn" ng-click="$ctrl.saveItem()">Save</button>
 </div>
